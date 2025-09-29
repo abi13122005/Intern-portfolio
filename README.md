@@ -4,7 +4,7 @@
 This is my frontend internship portfolio at Wiztech Automation Solutions.
 
 ## Live Portfolio
-Click the link to view: [Open Portfolio](https://github.com/abi13122005/Intern_portfolio.git)
+Click the link to view: [Open Portfolio](https://github.com/abi13122005/Intern-portfolio.git)
 
 ## Features
 - Editable name, role, and sections
