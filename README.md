@@ -1,4 +1,4 @@
-# Intern_portfolio
+# Intern-portfolio
 # Abinaya | Editable Internship Portfolio
 
 This is my frontend internship portfolio at Wiztech Automation Solutions.
