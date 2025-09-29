@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abinaya | Editable Internship Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; scroll-behavior:smooth; }
+  body { font-family:'Poppins', sans-serif; background:#f5f5f5; color:#333; line-height:1.6; }
+  a { text-decoration:none; color:inherit; }
+
+  nav { position:fixed; top:0; width:100%; background:#fff; display:flex; justify-content:center; gap:20px; padding:5px 0; z-index:1000; }
+  nav a { position:relative; color:#000; font-weight:600; padding:2px 4px; transition:color 0.3s; cursor:pointer; }
+  nav a::after { content:''; position:absolute; left:0; bottom:0; width:0%; height:5px; background:#90e0ef; transition:width 0.3s; }
+  nav a.active::after { width:100%; }
+
+  header { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; padding:160px 20px 50px; text-align:center; background:#fff; }
+  header .profile-img { flex:1; display:flex; justify-content:center; position:relative; }
+  header img { width:350px; height:450px; object-fit:cover; border-radius:12px; cursor:pointer; }
+  header .intro { flex:1; padding:20px; }
+  header h1, header p { margin-bottom:10px; cursor:text; }
+
+  .btn-download { background:#03045e; color:#fff; padding:12px 24px; border-radius:6px; font-size:1rem; transition:background 0.3s; box-shadow:0 8px 20px #03045e; display:inline-block; cursor:pointer; }
+  .btn-download:hover { background:#01497c; box-shadow:0 8px 20px #01497c; }
+
+  section { background:#fff; width:90%; max-width:1000px; margin:80px auto; padding:40px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+  section h2, section p { cursor:text; }
+  section h2 { font-size:2rem; color:#03045e; margin-bottom:20px; text-align:center; }
+
+  .screenshots { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+  .screenshot-item { flex:1 1 250px; max-width:300px; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.3s, box-shadow 0.3s; text-align:center; background:#fff; position:relative; }
+  .screenshot-item:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
+  .screenshot-item img { width:100%; display:block; cursor:pointer; }
+  .screenshot-item p { padding:10px; font-weight:600; color:#03045e; cursor:text; }
+
+  form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:auto; }
+  label { font-weight:600; color:#03045e; text-align:left; cursor:text; }
+  input, textarea { width:100%; padding:12px; border:1px solid #ddd; border-radius:6px; font-size:1rem; }
+
+  button { background:#001427; color:#fff; border:none; padding:12px; font-size:1rem; border-radius:6px; cursor:pointer; transition:background 0.3s; box-shadow:0 8px 20px #001427; }
+  button:hover { background:#01497c; box-shadow:0 8px 20px #01497c; }
+
+  footer { text-align:center; padding:20px; font-size:0.9rem; color:#999; cursor:text; }
+
+  .controls { position:fixed; top:70px; right:10px; background:#fff; padding:15px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:2000; width:200px; }
+  .controls label { display:block; margin-top:10px; font-size:0.9rem; }
+  .controls input, .controls select, .controls button { margin-top:5px; width:100%; padding:5px; }
+
+  @media(max-width:768px){
+    header { flex-direction:column; padding-top:120px; }
+    header img { width:200px; height:260px; }
+    header h1 { font-size:2rem; }
+    .controls { width:150px; top:60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#home" class="nav-link active">Home</a>
+  <a href="#about" class="nav-link">About</a>
+  <a href="#internship" class="nav-link">Internship</a>
+  <a href="#screenshots" class="nav-link">Screenshots</a>
+  <a href="#report" class="nav-link">Report</a>
+  <a href="#contact" class="nav-link">Contact</a>
+</nav>
+
+<!-- Header -->
+<header id="home">
+  <div class="profile-img">
+    <img src="Abi.jpg" alt="Profile Photo" id="profile-img" onclick="uploadProfile()" />
+  </div>
+  <div class="intro">
+    <h1 contenteditable="true">Abinaya</h1>
+    <p contenteditable="true">Frontend Developer Intern at Wiztech Automation Solutions</p>
+    <a href="ABIResume.pdf" class="btn-download" target="_blank">Download Resume</a>
+  </div>
+</header>
+
+<!-- About -->
+<section id="about">
+  <h2 contenteditable="true">About Me</h2>
+  <p contenteditable="true">Hello! I'm Abinaya, a 2nd-year B.Sc. Computer Science student passionate about frontend development, Python, UI/UX design, and machine learning.</p>
+</section>
+
+<!-- Internship -->
+<section id="internship">
+  <h2 contenteditable="true">Internship at Wiztech Automation Solutions</h2>
+  <p contenteditable="true"><strong>Role:</strong> Frontend Developer Intern</p>
+  <p contenteditable="true"><strong>Duration:</strong> [Add Duration]</p>
+  <p contenteditable="true"><strong>Technologies Used:</strong> HTML, CSS, JavaScript, Responsive Design</p>
+  <p contenteditable="true"><strong>Description:</strong> Built responsive web pages, implemented interactive UI components, and enhanced website UX.</p>
+</section>
+
+<!-- Screenshots -->
+<section id="screenshots">
+  <h2 contenteditable="true">Project Screenshots</h2>
+  <div class="screenshots" id="screenshots-container">
+    <div class="screenshot-item">
+      <img src="screenshot1.png" alt="Screenshot" onclick="uploadScreenshot(this)" />
+      <p contenteditable="true">Homepage Design</p>
+    </div>
+    <div class="screenshot-item">
+      <img src="screenshot2.png" alt="Screenshot" onclick="uploadScreenshot(this)" />
+      <p contenteditable="true">Dashboard Page</p>
+    </div>
+  </div>
+  <button onclick="addScreenshot()">Add Screenshot</button>
+</section>
+
+<!-- Report -->
+<section id="report">
+  <h2 contenteditable="true">Internship Report</h2>
+  <p style="text-align:center;" contenteditable="true">You can download my complete internship report below:</p>
+  <div style="text-align:center; margin-top:20px;">
+    <a href="Wiztech_Internship_Report.pdf" class="btn-download" target="_blank">Download Internship Report</a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 contenteditable="true">Contact Me</h2>
+  <form>
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" />
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" />
+
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Write your message"></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer contenteditable="true">&copy; 2025 Abinaya. All rights reserved.</footer>
+
+<!-- Canva-like Controls -->
+<div class="controls">
+  <label for="bg-color">Background Color</label>
+  <input type="color" id="bg-color" value="#ffffff">
+
+  <label for="text-color">Text Color</label>
+  <input type="color" id="text-color" value="#03045e">
+
+  <label for="font-select">Font Family</label>
+  <select id="font-select">
+    <option value="Poppins, sans-serif" selected>Poppins</option>
+    <option value="Arial, sans-serif">Arial</option>
+    <option value="Verdana, sans-serif">Verdana</option>
+    <option value="Georgia, serif">Georgia</option>
+    <option value="Times New Roman, serif">Times New Roman</option>
+  </select>
+
+  <button onclick="savePortfolio()">Save Portfolio</button>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section, header');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Navigation active link
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+    sections.forEach(section => {
+      const sectionTop
